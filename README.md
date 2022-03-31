@@ -18,9 +18,10 @@ custom card: "card-channel-pad" is required (you can find it [here](https://gith
 
 ## New Features:
 
-**remote is now resizable - scale added to dimensions option**
-**corderwidth added to dimensions option**
-**border added to colors option**
+## fixed turn on/off
+**define mac address in config for simple setups (where a specific broadcast IP is not required), otherwise you will need to create an automation using the "Device is requested to turn on" trigger against the entity**
+
+## fixed colors
 
 ## Color Management
 color customization implemented through the section
@@ -72,6 +73,7 @@ resources:
 ```yaml
 - type: 'custom:lg-remote-control'
   entity: media_player.tv_lg_55c8
+  mac: xx:xx:xx:xx
 ```
 
 ### Main Options
@@ -79,6 +81,8 @@ resources:
 | -------------- | ----------- | ------------ | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `type` | string | **Required** | `custom:lg-remote-control` | Type of the card |
 | `entity` | string | **Required** |  | tv entity |
+| `name` | string | **Option** |  | tv name |
+| `mac` | string | **Option** |  | tv mac address (if not specified, you need to create an automation to perform the action to turn the TV on) |
 | `colors` | string | **Option** |  | list of color options |
 | `channels` |  | **Option**|  | list of channel in popup |
 | `sources` |  | **Option**|  | list of custom app. if not set, default apps will be displayed |
@@ -210,6 +214,7 @@ in this new version we have implemented some new features:
 ```yaml
 - type: 'custom:lg-remote-control'
   entity: media_player.tv_lg_55c8
+  mac: xx:xx:xx:xx
   sources:
     - name: Netflix
       icon: 'mdi:netflix'
@@ -239,6 +244,7 @@ in this new version we have implemented some new features:
 ```yaml
 - type: 'custom:lg-remote-control'
   entity: media_player.tv_lg_55c8
+  mac: xx:xx:xx:xx
   dimensions:
     scale: 0.98
     border_width: 3px
